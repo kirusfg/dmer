@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block styleblock %}
+    <style>
+        .video-player-container {
+            margin: auto;
+            max-width: 720px;
+            height: auto;
+        }
+
+        .upload-in-process {
+            padding: 1rem;
+            background: rgb(255, 255, 255);
+        }
+        
+    </style>
+{% endblock %}
+
+{% block body %}
+
+{% for step in processing %}
+
+{% if step %}
+    <div class="upload-in-process">
+        <h1 class="upload-video-text">Evaluating...</h1>
+        <span>The process might take some (or a lot of) time. The video with emotion annotations will appear below as soon as its processing is finished.</span>
+    </div>
+{% else %}
+    <div class="video-player-container">
+        <video id="player" playsinline controls>
+          <source src={{ url_for('send_data', path="data/raw/" + video_id + "/video.mp4") }} type="video/mp4" />
+
+          <track kind="captions" label="English captions" src={{ url_for('send_data', path="data/results/" + video_id + "/captions.vtt") }} srclang="en" default />
+        </video>
+    </div>
+    <script>
+        const player = new Plyr('#player', {captions: {active: true}});
+    </script>
+{% endif %}
+
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,6 @@
+name: aligner
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - montreal-forced-aligner

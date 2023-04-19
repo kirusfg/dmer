@@ -1,0 +1,36 @@
+├── glove.emotions.840B.300d.pt
+├── cmu-mosei
+│   ├── audio_test.h5
+│   ├── audio_train.h5
+│   ├── audio_valid.h5
+│   ├── ey_test.h5
+│   ├── ey_train.h5
+│   ├── ey_valid.h5
+│   ├── mosei_senti_data.pkl
+│   ├── mosei_senti_data_noalign.pkl
+│   ├── readme.MD
+│   ├── text_test_emb.h5
+│   ├── text_train_emb.h5
+│   ├── text_valid_emb.h5
+│   ├── video_test.h5
+│   ├── video_train.h5
+│   ├── video_valid.h5
+│   ├── y_test.h5
+│   ├── y_train.h5
+│   └── y_valid.h5
+└── iemocap
+    ├── README.md
+    ├── covarep_test.p
+    ├── covarep_train.p
+    ├── covarep_valid.p
+    ├── facet_test.p
+    ├── facet_train.p
+    ├── facet_valid.p
+    ├── iemocap_data.pkl
+    ├── iemocap_data_noalign.pkl
+    ├── text_test.p
+    ├── text_train.p
+    ├── text_valid.p
+    ├── y_test.p
+    ├── y_train.p
+    └── y_valid.p

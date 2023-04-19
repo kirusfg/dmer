@@ -1,0 +1,10 @@
+venv/
+aligner/
+
+__pycache__
+.vector_cache
+
+test-data/
+app/pipeline/data
+FeatureExtraction
+tav.pt

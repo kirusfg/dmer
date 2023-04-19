@@ -1,0 +1,85 @@
+{%extends 'base.html' %}
+
+{%block styleblock %}
+
+ <style>
+        .progress-bar {
+            background-color: #f5f5f5;
+            border-radius: 2px;
+            display: inline-block;
+            height: 10px;
+            margin-right: 10px;
+            width: 100px;
+        }
+        .progress-bar-fill {
+            background-color: #007bff;
+            border-radius: 12px;
+            height: 10px;
+            transition: width 0.2s ease-in-out;
+            width: 0%;
+        }
+        .highlighted .progress-bar-fill {
+            background-color: #ff9900;
+        }
+    </style>
+
+{%endblock %}
+
+
+{%block body %}
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                {% for header in headers %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+    <!-- display the rows with progress bars -->
+    <tbody>
+        {% for row in data %}
+        <tr>
+            {% for value in row %}
+            {% if loop.index == 2 %}
+            <td class="{{ row[3] }}">
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: {{ value|float*100 }}%;"></div>
+                </div>
+            </td>
+            {% else %}
+            <td>{{ value }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tbody>
+        <tr>
+            <td>
+                {{linesep}}
+            </td>
+            <td>
+                {{linesep}}
+            </td>
+        </tr>
+    </tbody>
+    <!-- display the row with the maximum value in the second column -->
+    <tbody>
+        <tr class="max-row">
+            {% for value in data[maxbar] %}
+            {% if loop.index == 2 %}
+            <td class="{{ data[maxbar][3] }} highlight">
+                <strong>{{ '%0.2f' % value|float }}</strong>
+            </td>
+            {% else %}
+            <td>{{ value }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+    </tbody>
+    </table>
+</body>
+
+{%endblock %}
